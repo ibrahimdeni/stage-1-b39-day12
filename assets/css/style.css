@@ -1,0 +1,17 @@
+.y {
+    height: 93vh;
+    background-color: rgb(212, 222, 226);
+}
+
+.card {
+    width: 85%;
+}
+
+.card-body {
+    text-align: justify;
+}
+
+.card-body .d-flex img {
+    width: 35px;
+}
+

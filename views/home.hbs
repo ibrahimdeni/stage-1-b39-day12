@@ -1,0 +1,187 @@
+<html>
+
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="icon" type="image/x-icon" href="https://avatars3.githubusercontent.com/u/34464790?s=220&v=4">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid px-5">
+            <a class="navbar-brand" href="/home">
+                <img src="/assets/images/logo.png" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-auto mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold active" aria-current="page" href="/home">Home</a>
+                    </li>
+                    {{#if isLogin}}
+                    <li class="nav-item">
+                        <a class="nav-link text-orange active" aria-current="page" href="/add-project">Add Project</a>
+                    </li>
+                    {{/if}}
+                </ul>
+
+                <div class="d-flex" role="search">
+                    {{#if isLogin}}
+                        <a class="btn text-dark px-1 me-3" href="#" type="submit">Hello, {{user.name}}</a>
+                        <a class="btn text-dark px-3 me-3" href="/logout" type="submit">Logout</a>
+                    {{else}}
+                        <a class="btn text-dark px-1 me-3" href="/register" type="submit">Register</a>
+                        <a class="btn text-dark px-3 me-3" href="/login" type="submit">Login</a>
+                    {{/if}}
+
+                    <a class="btn text-white bg-dark px-4" href="/contact" type="submit">Contact Me</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    {{!-- {{#if isLogin}}
+    <h1>Selamat anda berhasil menambahkan blog baru di halaman home anda</h1>
+    {{else}}
+    <h1>harap, tambahkan blog baru terlebih dahulu</h1>
+    {{/if}} --}}
+
+    {{#if messages.success}}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <p>{{messages.success}}</p>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {{/if}}
+
+    <div class="d-flex justify-content-center align-items-center y">
+        <div class="card shadow">
+            <div class="row g-0 p-4">
+                <div class="col-md-8 h-auto">
+                    <div class="card-body">
+                        <div class="d-flex flex-column">
+                            <div class="p-2 mt-2 mb-4">
+                                <h5 class="card-title fs-4 fw-bolder">Hi! Welcome to my hut</h5>
+                                <p class="card-text fs-6 fw-semibold">Lorem ipsum dolor sit amet consectetur adipisicing
+                                    elit.
+                                    Tenetur qui
+                                    tempore voluptatem, dolore vitae molestias numquam saepe. Explicabo, nihil veniam
+                                    iste fugit
+                                    porro quod reprehenderit harum assumenda. Officiis, nisi inventore.
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                </p>
+                            </div>
+                            <div class="p-2 mb-5">
+                                <a class="btn rounded-5 bg-dark text-white px-4 btn-sm fw-semibold"
+                                    href="https://wa.me/6283838787866">Contact</a>
+                                <a class="btn btn-sm fw-semibold"
+                                    href="https://www.mediafire.com/file/w9b94a9hjgjimfy/Ibrahim_Deni_Haryanto_Resume.pdf/file">Download
+                                    CV <img style="width:18px;" src="/assets/images/download2.png" alt=""></a>
+                            </div>
+                            <div style="cursor:pointer;">
+                                <i class="px-3 fa-brands fa-linkedin-in fa-xl"></i>
+                                <i class="px-3 fa-brands fa-instagram fa-xl"></i>
+                                <i class="px-3 fa-brands fa-facebook-f fa-xl"></i>
+                                <i class="px-3 fa-brands fa-twitter fa-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col shadow text-center rounded-2">
+                    <div class="col">
+                        <img src="/assets/images/catto.png" class="img-fluid rounded-top" alt="...">
+                    </div>
+                    <div class="col mt-3 lh-1">
+                        <p class="fw-bolder fs-5">Ibrahim Deni Haryanto</p>
+                        <p class="text-secondary" style="margin-top: -10px; font-size: 17px;"><small
+                                class="text-muted fw-semibold">Fullstack Developer</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="bg-light">
+        <div class="pt-5">
+            <h2 class="text-center fw-bolder">MY PROJECT</h2>
+            <div class="my-5 row justify-content-center">
+
+                {{!-- projek dinamis seharusnya disini --}}
+                {{#each dataProject}}
+                <div class="border border-3 rounded-2 shadow mx-4 col-lg-3 gx-0 mb-4 cb" style="height: 555px">
+                    <div class="card-body">
+                        <img src="/assets/images/catto.png" class="card-img-top rounded-top"
+                            style="object-fit: cover; height: 45%; width: 100%;" alt="...">
+                        <div class="px-1 pb-2">
+                            <a href="/project-detail/{{this.id}}" class="card-title mt-2 fw-bold text-decoration-none text-dark">{{this.tittle}}</a>
+                            <p class="text-secondary" style="font-size: 17px">
+                                <small class="text-muted fw-semibold">
+                                    Durasi : {{this.duration}}, {{this.start_date}} ~ {{this.end_date}}
+                                </small>
+                            </p>
+                            <p class="card-text fw-semibold" style="font-size: 18px">
+                                {{this.description}}
+                            </p>
+
+                            
+                            <div class="d-flex mb-3">
+                          
+                            {{#if this.technologies.[0]}}<img class="me-4" src="/assets/images/{{this.technologies.[0]}}" alt="">{{/if}}
+                            {{#if this.technologies.[1]}}<img class="me-4" src="/assets/images/{{this.technologies.[1]}}" alt="">{{/if}}
+                            {{#if this.technologies.[2]}}<img class="me-4" src="/assets/images/{{this.technologies.[2]}}" alt="">{{/if}}
+                            {{#if this.technologies.[3]}}<img class="me-4" src="/assets/images/{{this.technologies.[3]}}" alt="">{{/if}}
+                            
+                            </div>
+                            
+                            {{#if isLogin}}
+                            <div class="d-flex">
+                                <a href="/edit-project/{{this.id}}" class="btn btn-dark w-50 me-1 fw-semibold">edit</a>
+                                <a href="/delete-project/{{this.id}}" class="btn btn-dark w-50 fw-semibold">delete</a>
+
+                                <!-- Modal -->
+                                {{!-- <div class="modal fade" id="exampleModal" tabindex="-1"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Alert!</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                are you sure gonna delete this project?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No !</button>
+                                                <a href="/delete-project/{{this.id}}" class="btn btn-dark w-50 fw-semibold" >Yes, please</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> --}}
+
+                            </div>
+                            {{/if}}
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
+        integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

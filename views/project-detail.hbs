@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Detail</title>
+    <link rel="icon" type="image/x-icon" href="https://avatars3.githubusercontent.com/u/34464790?s=220&v=4">
+    <link rel="stylesheet" href="/assets/css/blog-detail.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+</head>
+
+<body class="startt">
+
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid px-5">
+            <a class="navbar-brand" href="/home">
+                <img src="/assets/images/logo.png" alt="kucing">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-auto mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/home">Home</a>
+                    </li>
+                    {{#if isLogin}}
+                    <li class="nav-item">
+                        <a class="nav-link text-orange active" aria-current="page" href="/add-project">Add Project</a>
+                    </li>
+                    {{/if}}
+                </ul>
+
+                <div class="d-flex" role="search">
+                    {{#if isLogin}}
+                        <a class="btn text-dark px-1 me-3" href="#" type="submit">Hello, {{user.name}}</a>
+                        <a class="btn text-dark px-3 me-3" href="/logout" type="submit">Logout</a>
+                    {{else}}
+                        <a class="btn text-dark px-1 me-3" href="/register" type="submit">Register</a>
+                        <a class="btn text-dark px-3 me-3" href="/login" type="submit">Login</a>
+                    {{/if}}
+                    <a class="btn text-white bg-dark px-4" href="/contact" type="submit">Contact Me</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <section>
+
+        <h2 class="my-4 fw-bolder text-center">{{data.tittle}}</h2>
+        <div class="d-flex p-3" style="height: 500px;">
+            <div class="w-75">
+                <img class="w-100 px-5 pt-2" style="object-fit: cover; height: 100%;" src="/assets/images/catto.png" alt="">
+            </div>
+            <div class="w-25">
+                <div class="mb-5">
+                    <p class="fw-semibold fs-5">Duration</p>
+                    <div class="col mb-3 text-secondary">
+                        <label class="fw-semibold" for="kalender"><img class="me-2" src="/assets/images/kalender.png"
+                                style="width: 40px;" alt="">{{data.start_date}} - {{data.end_date}}</label>
+                    </div>
+                    <div class="col text-secondary">
+                        <label class="fw-semibold" for="kalender"><img class="me-2" src="/assets/images/jam.png"
+                                style="width: 40px;" alt="">{{data.duration}}</label>
+                    </div>
+                </div>
+                <div class="app">
+                    <p class="fw-semibold fs-5">Technologies</p>
+                    <div class="d-flex a fw-semibold text-secondary">
+                        <div class="w-100">
+                            <div>
+                                {{#if data.technologies.[0]}}<label class="mb-3" for=""><img class="me-2" src="/assets/images/{{data.technologies.[0]}}" alt="">Node Js</label>{{/if}}
+                            </div>
+                            <div>
+                                {{#if data.technologies.[1]}}<label class="mb-3" for=""><img class="me-2" src="/assets/images/{{data.technologies.[1]}}" alt="">React Js</label>{{/if}}
+                            </div>
+                        </div>
+                        <div class="w-100">
+                            <div>
+                                {{#if data.technologies.[2]}}<label class="mb-3" for=""><img class="me-2" src="/assets/images/{{data.technologies.[2]}}" alt="">Next Js</label>{{/if}}
+                            </div>
+                            <div>
+                                {{#if data.technologies.[3]}}<label class="mb-3" for=""><img class="me-2" src="/assets/images/{{data.technologies.[3]}}" alt="">Java</label>{{/if}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    </body>
+        <section>
+        <div class="mx-5 mt-5 lorem">
+            <p> 
+                {{data.description}}
+            </p>
+        </div>
+    </section>
+</body>
+
+
+
+
+</body>
+
+</html>
